@@ -1,0 +1,11 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+# Append the mod to the end of the game's main.lua. By then add_tag, Node and Tag are
+# defined, so the mod can replace and wrap them.
+[[patches]]
+[patches.copy]
+target = "main.lua"
+position = "append"
+sources = ["left_tags.lua"]
