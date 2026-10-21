@@ -5,6 +5,9 @@ A [Lovely](https://github.com/ethangreen-dev/lovely-injector) mod for Balatro th
 - Tags are drawn a bit smaller so they fit between the window's edge and the HUD.
 - Their tooltips open to the right, since the left side is off screen.
 - When the bottom tag is used up, the next one slides down the left margin.
+- The same tags next to each other collapse into one with a count, like `x3`. Only neighbours collapse, so the order the tags are used in stays visible: `Double, Double, Charm, Double` shows as `Double x2, Charm, Double`. Orbital Tags only collapse if they level up the same hand. The count goes down as the tags are used.
+
+Collapsing is on by default. Turn it off and on with **F6**, or with the checkbox in the **Left Tags** tab of the game's settings (Options → Settings). The shortcut can be changed there too: click it, press the keys, and let go. Esc clears it. Both are saved in `config/left-tags.jkr` in the game's save folder.
 
 The layout is made for a 16:9 window. In narrower windows the tags get cut off at the left edge.
 

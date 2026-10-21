@@ -1,11 +1,23 @@
 [manifest]
-version = "1.0.0"
+version = "1.1.0"
 priority = 0
 
-# Append the mod to the end of the game's main.lua. By then add_tag, Node and Tag are
-# defined, so the mod can replace and wrap them.
+# Append the mod to the end of the game's main.lua. By then add_tag, Node, Tag and Controller
+# are defined, so the mod can replace and wrap them. left_tags.lua goes first: it defines the
+# LeftTags table settings.lua uses.
 [[patches]]
 [patches.copy]
 target = "main.lua"
 position = "append"
-sources = ["left_tags.lua"]
+sources = ["left_tags.lua", "settings.lua"]
+
+# Add the mod's tab to the settings menu, the way Cartomancer adds its own.
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+match_indent = true
+position = "before"
+pattern = '''local t = create_UIBox_generic_options({back_func = 'options',contents = {create_tabs('''
+payload = '''
+if LeftTags then tabs[#tabs+1] = LeftTags.settings_tab() end
+'''
