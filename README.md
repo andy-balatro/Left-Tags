@@ -13,6 +13,8 @@ The layout is made for a 16:9 window. In narrower windows the tags get cut off a
 
 The mod replaces the game's `add_tag`, so other mods that also replace it won't work with it.
 
+[Andy's Chat](https://github.com/andy-balatro/andys-chat) comes with this mod built in, since its chat panel sits where the tags would go. Installing both is fine: only one copy runs.
+
 ## Install
 
 1. Install Lovely: download `lovely-x86_64-pc-windows-msvc.zip` from the [Lovely releases](https://github.com/ethangreen-dev/lovely-injector/releases) and copy `version.dll` into the Balatro game directory (Steam → Balatro → Manage → Browse local files).

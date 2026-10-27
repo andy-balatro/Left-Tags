@@ -3,7 +3,8 @@
 -- together, like Cartomancer's: click its button, press the keys, and letting go of one saves
 -- it. Escape clears it.
 
-do
+-- Skipped by a second copy of the mod (see left_tags.lua), which finds the settings loaded.
+if not LeftTags.settings then
   local SETTINGS_FILE = "config/left-tags.jkr"
   local DEFAULT_KEYBIND = { f6 = true }
 
@@ -180,8 +181,12 @@ do
     } }
   end
 
-  -- lovely.toml adds this to the tabs of the game's settings menu.
-  function LeftTags.settings_tab()
-    return { label = "Left Tags", tab_definition_function = settings_tab_contents }
+  -- lovely.toml adds the tab to the game's settings menu. A second copy of the mod does too, so
+  -- it's only added once.
+  function LeftTags.add_settings_tab(tabs)
+    for _, tab in ipairs(tabs) do
+      if tab.left_tags then return end
+    end
+    tabs[#tabs + 1] = { label = "Left Tags", tab_definition_function = settings_tab_contents, left_tags = true }
   end
 end

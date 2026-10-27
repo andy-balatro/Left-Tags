@@ -1,12 +1,15 @@
 -- Stacks skip tags up the left margin instead of the right one, so something can sit in the
 -- bottom-right corner (e.g. a chat panel) without covering them. Tags that follow each other and
 -- are the same can be collapsed into one with a count.
-
-LeftTags = {}
+--
+-- Andy's Chat comes with a copy of this mod, so both can be installed: the first copy in the
+-- game's main.lua runs, and the other skips itself.
 
 -- Lovely appends this to the game's main.lua, so the block keeps these locals out of the
 -- game's and other mods' way.
-do
+if not LeftTags then
+  LeftTags = {}
+
   -- Small enough to fit between the window's edge and the HUD at 16:9.
   local TAG_SIZE = 0.6
   -- Game:start_run puts the HUD's left edge this far into the left margin.
