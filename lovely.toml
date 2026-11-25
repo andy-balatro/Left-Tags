@@ -1,5 +1,5 @@
 [manifest]
-version = "1.2.0"
+version = "1.2.1"
 priority = 0
 
 # Append the mod to the end of the game's main.lua. By then add_tag, Node, Tag and Controller
